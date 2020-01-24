@@ -56,10 +56,13 @@ $(function() {
            
             row = timeObj[$( "#start-select" ).val()]
             length = (timeObj[$( "#end-select" ).val()]) - (timeObj[$( "#start-select" ).val()])
-            $('.content').append(`<div class='event' style='grid-row:${row}/span ${length};grid-column:${column};background-color: yellow;'>Reservation</div>`)
+            $('.content').append(`<div class='event' style='grid-row:${row}/span ${length};grid-column:${column};background-color: yellow;'>Appointment</div>`)
             $('.modal-container--form')[0].reset()
             $('.modal-container--form').off()
             $('.modal-container').toggle()
-        })
+        }) 
+        let myObj=`<div class='event' style='grid-row:${row}/span ${length};grid-column:${column};background-color: yellow;'>Appointment</div>`
+        localStorage.setItem("myObj", myObj);
+        console.log(localStorage);
       });
   });
