@@ -43,4 +43,23 @@ $(function() {
             "4 AM" : 24
         }
 
+        column = e.target.className.match(/\d+/)[0]
+
+        $('.modal-container').toggle()
+
+        $('.modal-container--close').click(function(){
+            $('.modal-container').css('display', 'none')
+        })
         
+        $('.modal-container--form').submit(function(e){
+            e.preventDefault()
+           
+            row = timeObj[$( "#start-select" ).val()]
+            length = (timeObj[$( "#end-select" ).val()]) - (timeObj[$( "#start-select" ).val()])
+            $('.content').append(`<div class='event' style='grid-row:${row}/span ${length};grid-column:${column};background-color: yellow;'>Reservation</div>`)
+            $('.modal-container--form')[0].reset()
+            $('.modal-container--form').off()
+            $('.modal-container').toggle()
+        })
+      });
+  });
